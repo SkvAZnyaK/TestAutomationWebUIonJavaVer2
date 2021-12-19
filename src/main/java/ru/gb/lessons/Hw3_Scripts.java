@@ -18,10 +18,10 @@ public class Hw3_Scripts {
         webDriver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
         Actions actions = new Actions(webDriver);
 
-//        Authorization(webDriver);
-//        PersonalDataChange(webDriver);
-//        AddToCart(webDriver, actions);
-//        SendFeedback(webDriver);
+        Authorization(webDriver);
+        PersonalDataChange(webDriver);
+        AddToCart(webDriver, actions);
+        SendFeedback(webDriver);
 
         Thread.sleep(10000);
         webDriver.quit();
