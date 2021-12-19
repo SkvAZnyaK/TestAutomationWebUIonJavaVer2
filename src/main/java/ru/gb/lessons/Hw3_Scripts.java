@@ -25,6 +25,8 @@ public class Hw3_Scripts {
 
         Thread.sleep(10000);
         webDriver.quit();
+        // Сознательно ставлю в каждом скрипте Thread.sleep(3000) на ключквых моментах, чтобы
+        // можно было понять что действия на странице выполнены. Понимаю, что делать так в реальной работе не надо ))
     }
 
     private static void Authorization(WebDriver webDriver) throws InterruptedException {
