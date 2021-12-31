@@ -1,0 +1,18 @@
+-------------------------------------------------------------------------------
+Test set: ru.gb.lessons.lesson5.Hw5Test
+-------------------------------------------------------------------------------
+Tests run: 5, Failures: 2, Errors: 0, Skipped: 0, Time elapsed: 174.39 s <<< FAILURE! - in ru.gb.lessons.lesson5.Hw5Test
+ru.gb.lessons.lesson5.Hw5Test.AddToCartTest  Time elapsed: 44.262 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: 
+[Не удалось положить товар в корзину] 
+expected: "1"
+ but was: ""
+	at ru.gb.lessons.lesson5.Hw5Test.AddToCartTest(Hw5Test.java:93)
+
+ru.gb.lessons.lesson5.Hw5Test.CompareListTest  Time elapsed: 27.424 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: 
+[Товар не попал в список для сравнения] 
+expected: "1"
+ but was: "2"
+	at ru.gb.lessons.lesson5.Hw5Test.CompareListTest(Hw5Test.java:62)
+
