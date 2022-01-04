@@ -1,0 +1,21 @@
+package ru.gb.lessons.Lesson7and8.Pages.Blocks.HeaderBlockEnums;
+
+public enum HeaderFirstLevelMenu {
+
+    WOMEN ("Women");
+
+    private String title;
+
+    HeaderFirstLevelMenu(String title) {
+        this.title = title;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    @Override
+    public String toString() {
+        return title;
+    }
+}
