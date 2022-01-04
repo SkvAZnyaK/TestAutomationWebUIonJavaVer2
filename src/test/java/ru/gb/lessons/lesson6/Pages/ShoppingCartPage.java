@@ -26,7 +26,7 @@ public class ShoppingCartPage extends BasicElementsPage{
     public ShoppingCartPage() {
     }
 
-    public ShoppingCartPage checkCartSucceed (){
+    public ShoppingCartPage checkProceedToCart (){
         assertThat(pageHeading.getText()).as("Не удалось открыть корзину").contains("SHOPPING-CART SUMMARY");
         return this;
     }

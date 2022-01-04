@@ -30,7 +30,7 @@ public class ShippingPage extends BasicElementsPage{
     public ShippingPage() {
     }
 
-    public ShippingPage checkProceedSuccess(){
+    public ShippingPage checkProceedToShipping(){
         assertThat(pageHeading.getText()).as("Не удалось перейти к выбору метода доставки").isEqualTo("SHIPPING");
         return this;
     }

@@ -27,7 +27,7 @@ public class AddressesPage extends BasicElementsPage{
     public AddressesPage() {
     }
 
-    public AddressesPage checkProceedSuccess(){
+    public AddressesPage checkProceedToAddress(){
         assertThat(pageHeading.getText()).as("Не удалось перейти к заполнению адреса").isEqualTo("ADDRESSES");
         return this;
     }

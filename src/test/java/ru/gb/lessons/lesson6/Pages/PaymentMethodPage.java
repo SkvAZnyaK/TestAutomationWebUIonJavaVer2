@@ -27,7 +27,7 @@ public class PaymentMethodPage extends BasicElementsPage{
     public PaymentMethodPage() {
     }
 
-    public PaymentMethodPage checkProceedSuccess (){
+    public PaymentMethodPage checkProceedToPaymentMethod(){
         assertThat(pageHeading.getText()).as("Не удалось перейти к выбору метода оплаты").isEqualTo("PLEASE CHOOSE YOUR PAYMENT METHOD");
         return this;
     }

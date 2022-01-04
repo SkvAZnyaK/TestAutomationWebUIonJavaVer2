@@ -1,18 +1,12 @@
 package ru.gb.lessons.lesson6;
 
+import io.qameta.allure.Description;
+import io.qameta.allure.Severity;
+import io.qameta.allure.SeverityLevel;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
-import ru.gb.lessons.lesson6.Pages.BaseView;
 import ru.gb.lessons.lesson6.Pages.BasicElementsPage;
-import ru.gb.lessons.lesson6.Pages.Blocks.HeaderFirstLevelMenu;
-import ru.gb.lessons.lesson6.Pages.Blocks.HeaderSecondLevelMenu;
 import ru.gb.lessons.lesson6.Pages.UiAuthorizationPage;
-
-import java.util.List;
-
-import static org.assertj.core.api.Assertions.assertThat;
 
 public class Hw6PageObjectTest extends BasicElementsPage {
 
@@ -21,9 +15,12 @@ public class Hw6PageObjectTest extends BasicElementsPage {
     private final String name = "Sergey";
     private final String sureName = "Semizarov";
     private final String someCommentsToProceed = "Very important blah-blah...";
+    private final String feedbackText = "Thank you very much! for such a beautiful source to practice!";
 
 
     @Test
+    @Description("Этот тест проходит на страницу авторизации, вводит логин и пароль в соответствующие поля, и нажимает кнопку авторизоваться")
+    @Severity(SeverityLevel.BLOCKER)
     @DisplayName("Тестирование авторизации через логин и пароль" )
     void UIAuthorizationTest() throws InterruptedException {
         webDriver.get("http://automationpractice.com/index.php");
@@ -37,6 +34,8 @@ public class Hw6PageObjectTest extends BasicElementsPage {
     }
 
     @Test
+    @Description("Этот тест заходит в раздел персональных данных личного кабинета, изменяет поля с личными данными, вводит актуальный пароль и нажимает кнопку сохранить")
+    @Severity(SeverityLevel.CRITICAL)
     @DisplayName("Тестирование изменения личных данных")
     void PersonalDataChangeTest() {
         webDriver.get("http://automationpractice.com/index.php");
@@ -57,48 +56,70 @@ public class Hw6PageObjectTest extends BasicElementsPage {
     }
 
 //    @Test
+//    @Description("Этот тест проходит на страницу с товарами, поочередно нажимает кнопку сравнить у двух первых товаров из списка, проходит на страницу сравнения, удаляет выбранные товары из сравнения и закрывает страницу сравнения")
+//    @Severity(SeverityLevel.CRITICAL)
 //    @DisplayName("Тестирование сравнения товаров")
 //    void CompareListTest() throws InterruptedException {
 //        webDriver.get("http://automationpractice.com/index.php");
-//        new UiAuthorizationPage(webDriver).enterLogin(email).enterPassword(pswd).clickLoginButton();
-//                .
+//        new UiAuthorizationPage(webDriver).enterLogin(email).enterPassword(pswd).clickLoginButton()
+//                .goToCompareListPage()
+//                .goToProductListPage2()
+//                .addToCompareList(0,1)
+//                .clickCompareButton()
+//                .checkProceedToCompareListSuccess()
+//                .cleanAndCloseCompareList()
+//                .checkIfCompareListClosed();
+//    }
+
+//    @Test
+//    @Description("Этот тест проходит на страницу с товарами, нажимает на кнопку добавить в корзину у первого товара из списка, закрывает уведомление, открывает корзину и заказывает товар")
+//    @Severity(SeverityLevel.BLOCKER)
+//    @DisplayName("Тестирование добавления товара в корзину, оформления и оплаты заказа")
+//    void AddToCartTest() throws InterruptedException {
+//        webDriver.get("http://automationpractice.com/index.php");
+//        new UiAuthorizationPage(webDriver).enterLogin(email).enterPassword(pswd).clickLoginButton()
+//                .goToProductListPage()
+//                .addToCart(0)
+//                .closeProductWindow()
+//                .checkIfProductWindowIsClosed()
+//                .checkIfProductIsInCart()
+//                .goToShoppingCart()
+//                .checkProceedToCart()
+//                .clickProceedToCheckout()
+//                .checkProceedToAddress()
+//                .clickMyAddress()
+//                .typeSomeComments(someCommentsToProceed)
+//                .clickProceed()
+//                .checkProceedToShipping()
+//                .clickAgree()
+//                .clickProceed()
+//                .checkProceedToPaymentMethod()
+//                .clickPayByBankWire()
+//                .checkProceedToOrderSummary()
+//                .clickConfirm()
+//                .checkConfirmation();
 //    }
 
     @Test
-    @DisplayName("Тестирование добавления товара в корзину, оформления и оплаты заказа")
-    void AddToCartTest() throws InterruptedException {
+    @Description("Этот тест проходит на страницу обратной связи, выбирает адрессата, пишет текст в соответствующем поле и нажимает кнопку отправить")
+    @Severity(SeverityLevel.MINOR)
+    @DisplayName("Тестирование обратной связи")
+    void SendFeedbackTest() {
         webDriver.get("http://automationpractice.com/index.php");
         new UiAuthorizationPage(webDriver).enterLogin(email).enterPassword(pswd).clickLoginButton()
-                .goToProductListPage()
-                .addToCart(0)
-                .closeProductWindow()
-                .checkIfProductWindowIsClosed()
-                .checkIfProductIsInCart()
-                .goToShoppingCart()
-                .checkCartSucceed()
-                .clickProceedToCheckout()
+                .clickContactUs()
                 .checkProceedSuccess()
-                .clickMyAddress()
-                .typeSomeComments(someCommentsToProceed)
-                .clickProceed()
-                .checkProceedSuccess()
-                .clickAgree()
-                .clickProceed()
-                .checkProceedSuccess()
-                .clickPayByBankWire()
-                .checkProceedSuccess()
-                .clickConfirm()
-                .checkConfirmation();
-
+                .setIdContact()
+                .checkContactIdValue()
+                .writeFeedbackText(feedbackText)
+                .checkFeedbackText(feedbackText)
+                .sendFeedback()
+                .checkIfFeedbackSent();
     }
 
-//    @Test
-//    @DisplayName("Тестирование обратной связи")
-//    void SendFeedbackTest() {
-//        webDriver.get("http://automationpractice.com/index.php");
-//        new UiAuthorizationPage(webDriver).enterLogin(email).enterPassword(pswd).clickLoginButton()
-//                .
-//    }
+
+
+
 
 
     //webDriver.quit();

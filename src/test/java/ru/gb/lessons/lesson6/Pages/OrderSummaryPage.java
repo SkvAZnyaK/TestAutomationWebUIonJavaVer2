@@ -24,7 +24,7 @@ public class OrderSummaryPage extends BasicElementsPage {
         super(webDriver);
     }
 
-    public OrderSummaryPage checkProceedSuccess() {
+    public OrderSummaryPage checkProceedToOrderSummary() {
         assertThat(pageHeading.getText()).as("Не удалось перейти к проверке параметров заказа").isEqualTo("ORDER SUMMARY");
         return this;
     }
